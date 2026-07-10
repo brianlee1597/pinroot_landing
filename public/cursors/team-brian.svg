@@ -7,6 +7,6 @@
   <path d="M8 7a.7.7 0 0 1 .9-.9l22 8.8a.7.7 0 0 1-.08 1.32l-8.95 2.98a.7.7 0 0 0-.45.45l-2.98 8.95a.7.7 0 0 1-1.32.08L8 7Z" fill="#ffc3eb" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" filter="url(#shadow)"/>
   <g filter="url(#shadow)">
     <rect x="38" y="25" width="70" height="29" fill="#ffc3eb" stroke="#fff" stroke-width="3"/>
-    <text x="73" y="39.5" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#1d1e1b">Brian</text>
+    <text x="73" y="40.5" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#1d1e1b">Brian</text>
   </g>
 </svg>
