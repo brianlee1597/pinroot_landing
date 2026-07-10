@@ -1,0 +1,675 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f3eddf;
+  --color-paper-deep: #e9dfcb;
+  --color-ink: #1d1e1b;
+  --color-deep-teal: #007f7f;
+  --color-ocean-teal: #2e9ea0;
+  --color-mist: #d5e6e5;
+  --color-cloud: #e6ecee;
+  --color-charcoal: #242b33;
+  --color-sun: #ffcf32;
+  --color-violet: #9c5cf5;
+
+  --breakpoint-3xl: 120rem;
+
+  --font-display: var(--font-fraunces, Fraunces), "Iowan Old Style", Georgia, serif;
+  --font-body: var(--font-work-sans, "Work Sans"), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-space-mono, "Space Mono"), "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --radius-component: 8px;
+  --shadow-swatch: 0 10px 18px rgb(29 30 27 / 0.16);
+  --tracking-label: 0.14em;
+}
+
+:root {
+  --font-display: var(--font-fraunces, Fraunces), "Iowan Old Style", Georgia, serif;
+  --font-body: var(--font-work-sans, "Work Sans"), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-space-mono, "Space Mono"), "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-body: var(--font-work-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-space-mono), "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  margin: 0;
+  background: #f3eddf;
+  color: #1d1e1b;
+  font-family: var(--font-body);
+  font-weight: 400;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+a:not([class]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-text-link {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.35em;
+  transition:
+    color 150ms ease,
+    text-decoration-color 150ms ease;
+}
+
+.nav-text-link:hover,
+.nav-text-link:focus-visible {
+  color: #1d1e1b;
+  text-decoration-color: #1d1e1b;
+}
+
+.nav-text-link:focus-visible {
+  outline: none;
+}
+
+html[data-theme="dark"] body {
+  background: #242b33;
+  color: #f3eddf;
+}
+
+html[data-theme="dark"] .bg-paper,
+html[data-theme="dark"] .bg-paper\/95 {
+  background-color: #242b33;
+}
+
+html[data-theme="dark"] .bg-paper\/95 {
+  background-color: rgb(36 43 51 / 0.95);
+}
+
+html[data-theme="dark"] .bg-paper-deep {
+  background-color: #1b222a;
+}
+
+html[data-theme="dark"] .bg-cloud,
+html[data-theme="dark"] .bg-mist {
+  background-color: #1d1e1b;
+}
+
+html[data-theme="dark"] .bg-ink {
+  background-color: #1d1e1b;
+}
+
+html[data-theme="dark"] .text-ink {
+  color: #f3eddf;
+}
+
+html[data-theme="dark"] .text-ink\/78 {
+  color: rgb(243 237 223 / 0.78);
+}
+
+html[data-theme="dark"] .text-ink\/72 {
+  color: rgb(243 237 223 / 0.72);
+}
+
+html[data-theme="dark"] .text-ink\/60 {
+  color: rgb(243 237 223 / 0.6);
+}
+
+html[data-theme="dark"] .text-paper {
+  color: #f3eddf;
+}
+
+html[data-theme="dark"] .text-paper\/78 {
+  color: rgb(243 237 223 / 0.78);
+}
+
+html[data-theme="dark"] .border-ink {
+  border-color: #f3eddf;
+}
+
+html[data-theme="dark"] [class*="border-ink/"] {
+  border-color: rgb(243 237 223 / 0.24);
+}
+
+html[data-theme="dark"] .border-ocean-teal\/60 {
+  border-color: rgb(46 158 160 / 0.7);
+}
+
+html[data-theme="dark"] .hover\:bg-cloud\/60:hover {
+  background-color: rgb(230 236 238 / 0.1);
+}
+
+html[data-theme="dark"] .hover\:bg-charcoal:hover {
+  background-color: #007f7f;
+}
+
+html[data-theme="dark"] .nav-text-link:hover,
+html[data-theme="dark"] .nav-text-link:focus-visible {
+  color: #f3eddf;
+  text-decoration-color: #f3eddf;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: #1d1e1b;
+  border-color: rgb(243 237 223 / 0.26);
+  color: #f3eddf;
+  box-shadow: 0 16px 36px rgb(0 0 0 / 0.28);
+}
+
+html[data-theme="dark"] .theme-toggle:hover,
+html[data-theme="dark"] .theme-toggle:focus-visible {
+  background: #f3eddf;
+  border-color: #f3eddf;
+  color: #1d1e1b;
+}
+
+html[data-theme="dark"] .pinroot-sprout__card-fill,
+html[data-theme="dark"] .pinroot-sprout__checklist rect,
+html[data-theme="dark"] .pinroot-sprout__blocks rect {
+  fill: #1d1e1b;
+  stroke: #f3eddf;
+  stroke-opacity: 0.22;
+}
+
+html[data-theme="dark"] .pinroot-sprout__card--front .pinroot-sprout__card-fill {
+  fill: #20272f;
+}
+
+html[data-theme="dark"] .pinroot-sprout__card-rule {
+  stroke: #f3eddf;
+  stroke-opacity: 0.24;
+}
+
+html[data-theme="dark"] .pinroot-sprout__chart-dot {
+  fill: #242b33;
+}
+
+.manifesto-sketch {
+  pointer-events: none;
+}
+
+.manifesto-sketch__svg {
+  display: block;
+  height: auto;
+  overflow: visible;
+  width: 100%;
+}
+
+.manifesto-sketch__line {
+  opacity: 0.9;
+  stroke: #f3eddf;
+  stroke-dasharray: 0 9999;
+  stroke-dashoffset: 0;
+  stroke-linecap: butt;
+  stroke-width: 4;
+}
+
+.manifesto-sketch__pencil-motion {
+  opacity: 0;
+}
+
+.manifesto-sketch__pencil-static {
+  display: none;
+}
+
+.manifesto-sketch__pencil-body,
+.manifesto-sketch__pencil-tip,
+.manifesto-sketch__pencil-band,
+.manifesto-sketch__pencil-eraser {
+  stroke: #f3eddf;
+  stroke-width: 3.5;
+}
+
+.manifesto-sketch__pencil-point {
+  stroke: #f3eddf;
+  stroke-width: 2.75;
+}
+
+.pinroot-sprout {
+  pointer-events: none;
+}
+
+.pinroot-sprout__svg {
+  display: block;
+  height: auto;
+  overflow: visible;
+  transform: translateX(-8%);
+  width: 100%;
+}
+
+@media (min-width: 48rem) {
+  .pinroot-sprout__svg {
+    transform: none;
+  }
+}
+
+.pinroot-sprout__card,
+.pinroot-sprout__pin,
+.pinroot-sprout__leaf,
+.pinroot-sprout__bud,
+.pinroot-sprout__root-node,
+.pinroot-sprout__chart-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.pinroot-sprout__card {
+  animation: pinroot-card-in 720ms cubic-bezier(0.2, 0.78, 0.24, 1) forwards;
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+}
+
+.pinroot-sprout__card--back {
+  animation-delay: 120ms;
+}
+
+.pinroot-sprout__card--front {
+  animation-delay: 260ms;
+}
+
+.pinroot-sprout__card-fill {
+  fill: #e6ecee;
+  stroke: #1d1e1b;
+  stroke-opacity: 0.18;
+  stroke-width: 1.5;
+}
+
+.pinroot-sprout__card--front .pinroot-sprout__card-fill {
+  fill: #d5e6e5;
+}
+
+.pinroot-sprout__card-rule {
+  stroke: #1d1e1b;
+  stroke-opacity: 0.22;
+  stroke-width: 3;
+}
+
+.pinroot-sprout__chart-line,
+.pinroot-sprout__stem,
+.pinroot-sprout__root-line,
+.pinroot-sprout__checklist path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.pinroot-sprout__chart-line {
+  animation: pinroot-draw 820ms ease-out 760ms forwards;
+  stroke: #007f7f;
+  stroke-width: 4;
+}
+
+.pinroot-sprout__chart-dot,
+.pinroot-sprout__root-node {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.pinroot-sprout__chart-dot {
+  animation: pinroot-pop 320ms cubic-bezier(0.17, 0.84, 0.44, 1.25) forwards;
+  fill: #f3eddf;
+  stroke: #007f7f;
+  stroke-width: 3;
+}
+
+.pinroot-sprout__chart-dot--one {
+  animation-delay: 820ms;
+}
+
+.pinroot-sprout__chart-dot--two {
+  animation-delay: 980ms;
+}
+
+.pinroot-sprout__chart-dot--three {
+  animation-delay: 1140ms;
+}
+
+.pinroot-sprout__checklist rect,
+.pinroot-sprout__blocks rect {
+  fill: #f3eddf;
+  stroke: #1d1e1b;
+  stroke-opacity: 0.24;
+  stroke-width: 1.5;
+}
+
+.pinroot-sprout__checklist path {
+  animation: pinroot-draw 520ms ease-out forwards;
+  stroke: #3c6864;
+  stroke-width: 3.5;
+}
+
+.pinroot-sprout__checklist path:nth-of-type(1) {
+  animation-delay: 660ms;
+}
+
+.pinroot-sprout__checklist path:nth-of-type(2) {
+  animation-delay: 760ms;
+}
+
+.pinroot-sprout__checklist path:nth-of-type(3) {
+  animation-delay: 900ms;
+}
+
+.pinroot-sprout__checklist path:nth-of-type(4) {
+  animation-delay: 1000ms;
+}
+
+.pinroot-sprout__blocks rect {
+  animation: pinroot-block-in 560ms cubic-bezier(0.2, 0.78, 0.24, 1) forwards;
+  opacity: 0;
+  transform: translateY(10px);
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+
+.pinroot-sprout__blocks rect:nth-child(1) {
+  animation-delay: 720ms;
+}
+
+.pinroot-sprout__blocks rect:nth-child(2) {
+  animation-delay: 840ms;
+}
+
+.pinroot-sprout__blocks rect:nth-child(3) {
+  animation-delay: 960ms;
+}
+
+.pinroot-sprout__pin {
+  animation: pinroot-pin-in 700ms cubic-bezier(0.18, 0.9, 0.25, 1.25) 620ms forwards;
+  filter: drop-shadow(0 14px 24px rgb(29 30 27 / 0.16));
+  opacity: 0;
+  transform: translateY(-12px) scale(0.9);
+}
+
+.pinroot-sprout__pin path {
+  fill: #f3eddf;
+  stroke: #1d1e1b;
+  stroke-width: 3;
+}
+
+.pinroot-sprout__pin circle {
+  fill: #3c6864;
+}
+
+.pinroot-sprout__root-line {
+  animation: pinroot-draw 900ms ease-out forwards;
+  stroke: #3c6864;
+  stroke-width: 3.25;
+}
+
+.pinroot-sprout__root-line--main {
+  animation-delay: 940ms;
+}
+
+.pinroot-sprout__root-line--left {
+  animation-delay: 1100ms;
+}
+
+.pinroot-sprout__root-line--right {
+  animation-delay: 1180ms;
+}
+
+.pinroot-sprout__root-line--thread-left {
+  animation-delay: 1320ms;
+  stroke-width: 2.5;
+}
+
+.pinroot-sprout__root-line--thread-right {
+  animation-delay: 1400ms;
+  stroke-width: 2.5;
+}
+
+.pinroot-sprout__root-node {
+  animation: pinroot-pop 360ms cubic-bezier(0.17, 0.84, 0.44, 1.25) forwards;
+  fill: #f3eddf;
+  stroke: #3c6864;
+  stroke-width: 3;
+}
+
+.pinroot-sprout__root-node--one {
+  animation-delay: 1540ms;
+}
+
+.pinroot-sprout__root-node--two {
+  animation-delay: 1620ms;
+}
+
+.pinroot-sprout__root-node--three {
+  animation-delay: 1700ms;
+}
+
+.pinroot-sprout__stem {
+  animation: pinroot-draw 820ms ease-out 1240ms forwards;
+  stroke: #007f7f;
+  stroke-width: 7;
+}
+
+.pinroot-sprout__leaf {
+  fill: #007f7f;
+  stroke: #1d1e1b;
+  stroke-opacity: 0.16;
+  stroke-width: 1.5;
+  transform: scale(0) rotate(-7deg);
+}
+
+.pinroot-sprout__leaf--left {
+  animation: pinroot-leaf-open 700ms cubic-bezier(0.16, 0.82, 0.24, 1) 1760ms forwards;
+  transform-origin: 80% 70%;
+}
+
+.pinroot-sprout__leaf--right {
+  animation: pinroot-leaf-open 760ms cubic-bezier(0.16, 0.82, 0.24, 1) 1900ms forwards;
+  transform-origin: 20% 85%;
+}
+
+.pinroot-sprout__bud {
+  animation: pinroot-pop 380ms cubic-bezier(0.17, 0.84, 0.44, 1.25) 1680ms forwards;
+  fill: #3c6864;
+  opacity: 0;
+  stroke: #f3eddf;
+  stroke-width: 3;
+  transform: scale(0);
+}
+
+@keyframes pinroot-card-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pinroot-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pinroot-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pinroot-block-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pinroot-pin-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pinroot-leaf-open {
+  to {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.typewriter-word {
+  display: inline-flex;
+  align-items: baseline;
+  position: relative;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.typewriter-word__letters {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.typewriter-word__char {
+  animation: typewriter-character-reveal 1ms step-end var(--typewriter-character-delay) forwards;
+  display: inline-block;
+  opacity: 0;
+  position: relative;
+  visibility: hidden;
+}
+
+.typewriter-word__char::after {
+  animation: typewriter-character-caret var(--typewriter-step-duration) step-end
+    var(--typewriter-character-delay);
+  background: currentColor;
+  bottom: 0.08em;
+  content: "";
+  opacity: 0;
+  position: absolute;
+  right: -0.035em;
+  top: 0.12em;
+  width: 0.055em;
+}
+
+.typewriter-word__final-caret {
+  animation: typewriter-final-caret 720ms step-end var(--typewriter-final-caret-delay) 4
+    forwards;
+  border-right: 0.055em solid currentColor;
+  display: inline-block;
+  height: 0.86em;
+  margin-left: 0.02em;
+  opacity: 0;
+  transform: translateY(0.08em);
+}
+
+@keyframes typewriter-character-reveal {
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes typewriter-character-caret {
+  0%,
+  92% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes typewriter-final-caret {
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  49%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .manifesto-sketch__line,
+  .manifesto-sketch__pencil-body,
+  .manifesto-sketch__pencil-tip,
+  .manifesto-sketch__pencil-band,
+  .manifesto-sketch__pencil-eraser,
+  .manifesto-sketch__pencil-point {
+    animation: none;
+    stroke-dashoffset: 0 !important;
+  }
+
+  .manifesto-sketch__pencil-motion {
+    display: none;
+  }
+
+  .manifesto-sketch__pencil-static {
+    animation: none;
+    display: block;
+    opacity: 1;
+  }
+
+  .pinroot-sprout__card,
+  .pinroot-sprout__pin,
+  .pinroot-sprout__leaf,
+  .pinroot-sprout__bud,
+  .pinroot-sprout__root-node,
+  .pinroot-sprout__chart-dot,
+  .pinroot-sprout__blocks rect {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .pinroot-sprout__chart-line,
+  .pinroot-sprout__stem,
+  .pinroot-sprout__root-line,
+  .pinroot-sprout__checklist path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .typewriter-word__char {
+    animation: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .typewriter-word__char::after,
+  .typewriter-word__final-caret {
+    display: none;
+  }
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #3c6864;
+  color: #f3eddf;
+}
