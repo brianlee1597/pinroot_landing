@@ -1,5 +1,4 @@
 import { PinRootLogo } from "@/components/brand/pinroot-logo";
-import { PortraitPlaceholder } from "@/components/brand/portrait-placeholder";
 import { FloatingNav } from "@/components/site/floating-nav";
 import { ManifestoSketchIllustration } from "@/components/site/manifesto-sketch-illustration";
 import { NavLink } from "@/components/site/nav-link";
@@ -31,27 +30,27 @@ const services = [
 const teamMembers = [
   {
     name: "Brian",
-    label: "drawing headshot",
+    image: "/profile_images/Brian_profile.png",
     cursor: "/cursors/team-brian.svg"
   },
   {
     name: "Claudia",
-    label: "drawing headshot",
+    image: "/profile_images/Claudia_profile.png",
     cursor: "/cursors/team-claudia-cursor.svg"
   },
   {
     name: "Kezia",
-    label: "drawing headshot",
+    image: "/profile_images/Kezia_profile.png",
     cursor: "/cursors/team-kezia.svg"
   },
   {
     name: "Moona",
-    label: "drawing headshot",
+    image: "/profile_images/Mouna_profile.png",
     cursor: "/cursors/team-moona.svg"
   },
   {
     name: "Tim",
-    label: "drawing headshot",
+    image: "/profile_images/Tim_profile.png",
     cursor: "/cursors/team-tim.svg"
   }
 ] as const;
@@ -231,10 +230,15 @@ function TeamPortrait({ member }: { member: TeamMember }) {
         href="#contact"
         style={{ cursor: `url("${member.cursor}") 14 12, pointer` }}
       >
-        <PortraitPlaceholder
-          className="relative z-0 transition-[border-color,box-shadow,transform] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:border-ink/45 group-hover:shadow-[0_18px_36px_rgb(29_30_27_/_0.14)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-ink/45 group-focus-visible:shadow-[0_18px_36px_rgb(29_30_27_/_0.14)]"
-          label={member.label}
-        />
+        <div className="relative z-0 aspect-square overflow-hidden border border-ink/30 bg-transparent transition-[border-color,box-shadow,transform] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:border-ink/45 group-hover:shadow-[0_18px_36px_rgb(29_30_27_/_0.14)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-ink/45 group-focus-visible:shadow-[0_18px_36px_rgb(29_30_27_/_0.14)]">
+          <img
+            alt=""
+            aria-hidden="true"
+            className="block h-full w-full object-cover"
+            draggable={false}
+            src={member.image}
+          />
+        </div>
       </a>
     </article>
   );
